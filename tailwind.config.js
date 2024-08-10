@@ -11,6 +11,7 @@ export default {
         'purple': '#8b4eda',
         'gray': '#84858b',
         'light-gray': '#828687',
+        'dark-gray': '#2d3035',
       },
     },
   },

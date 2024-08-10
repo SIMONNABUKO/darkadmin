@@ -9,6 +9,7 @@ document.addEventListener('alpine:init', () => {
         showNotifications: false,
         showLanguages: false,
         menuIsMinimised: false,
+        dropdownActive: false,
 
         toggleMessages() {
             this.showMessages = !this.showMessages
