@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body x-data="data">
+
+  <header
+    class="w-full h-24 bg-light-dark border-b border-b-border-dark text-light-gray flex justify-between px-4 relative flex-wrap">
+    <div class="flex justify-between uppercase  items-center">
+      <h3 class="pr-4 tracking-wider"><span class="text-dark-pink">Da<span x-show="!menuIsMinimised"
+            x-transition>rk</span><span x-show="!menuIsMinimised" class="text-light-gray" x-transition>Admin</span></h3>
+      <i @click="toggleMenu" :class="menuIsMinimised? 'ri-arrow-right-circle-line': 'ri-arrow-left-circle-line'"
+        class="text-3xl hover:cursor-pointer"></i>
+    </div>
+
+    <div class="flex justify-between">
+
+      <ul class="flex justify-between items-center">
+        <li class="pr-6"><a href="#"><i class="ri-search-line text-lg"></i></a></li>
+        <li class="pr-6" @click="toggleMessages"><a href="#" class="relative"> <i class="ri-mail-line text-lg"></i>
+            <span
+              class="absolute top-0 right-0 text-white bg-purple rounded-full h-5 w-5 flex justify-center items-center text-xs font-bold -mr-3 -mt-2">6</span></a>
+        </li>
+        <li class="pr-6" @click="toggleNotifications"><a href="#" class="relative"><i
+              class="ri-edit-box-line text-lg"></i> <span
+              class="absolute top-0 right-0 text-white bg-dark-pink rounded-full h-5 w-5 flex justify-center items-center text-xs font-bold -mr-3 -mt-2">6</span></a>
+        </li>
+        <li class="pr-6 hidden sm:block"><a href="#">Mega</a></li>
+
+      </ul>
+      <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center pr-4 hover:cursor-pointer" @click="toggleLanguages">
+          <img class="pr-2 h-4 w-8" src="https://flagcdn.com/w320/gb-eng.png" alt="">
+          <p class="pr-2 hidden sm:block">English</p>
+          <i class="ri-arrow-down-s-line text-lg"></i>
+        </div>
+        <div>
+          <p class="text-center "><span class=" hidden sm:block">Logout </span><span class="px-3"><i
+                class="ri-logout-circle-r-line text-lg"></i></span></p>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="h-auto w-72 border border-border-dark absolute top-0 right-0 mt-24 mr-5 md:mr-60" x-show="showMessages"
+      x-transition>
+      <div
+        class="flex justify-between items-center border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
+        <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-0.jpg" alt="">
+        <div>
+          <h4 class="font-bold">Simon Angatia</h4>
+          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipi</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center border-t bg-light-dark  border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
+        <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-1.jpg" alt="">
+        <div>
+          <h4 class="font-bold">Simon Angatia</h4>
+          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipi</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center border-t bg-light-dark  border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
+        <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-2.jpg" alt="">
+        <div>
+          <h4 class="font-bold">Simon Angatia</h4>
+          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipi</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center border-t bg-light-dark  border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
+        <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-3.jpg" alt="">
+        <div>
+          <h4 class="font-bold">Simon Angatia</h4>
+          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipi</p>
+        </div>
+      </div>
+      <div
+        class="flex justify-between items-center border-t bg-light-dark  border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
+        <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-4.jpg" alt="">
+        <div>
+          <h4 class="font-bold">Simon Angatia</h4>
+          <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipi</p>
+        </div>
+      </div>
+
+
+
+
+    </div>
+
+    <div class="h-auto w-72 border border-border-dark absolute top-0 right-0 mt-24  md:mr-48" x-show="showNotifications"
+      x-transition>
+      <div
+        class="flex justify-between items-center flex-col border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
+
+        <div class="flex justify-between items-center w-full">
+          <h4>Task 1</h4>
+          <p>50% Completed</p>
+        </div>
+
+        <div class="w-full flex py-3">
+          <p class="w-1/2 bg-purple h-1"></p>
+          <p class="w-1/2 bg-border-dark h1"></p>
+        </div>
+
+      </div>
+
+      <div
+        class="flex justify-between items-center flex-col border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
+
+        <div class="flex justify-between items-center w-full">
+          <h4>Task 2</h4>
+          <p>30% Completed</p>
+        </div>
+
+        <div class="w-full flex py-3">
+          <p class="w-1/3 bg-dark-pink h-1"></p>
+          <p class="w-2/3 bg-border-dark h1"></p>
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <div class="h-auto w-52 border border-border-dark absolute top-0 right-0 mt-24 mr-3 md:mr-14" x-show="showLanguages"
+      x-transition>
+      <div
+        class="flex justify-start items-center py-2  border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
+
+        <img class="h-5 px-5" src="https://flagcdn.com/w320/gb-eng.png" alt="">
+        <p>English</p>
+
+      </div>
+      <div
+        class="flex justify-start items-center py-2 border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
+
+        <img class="h-5 px-5" src="https://flagcdn.com/w320/fr.png" alt="">
+        <p>French</p>
+
+      </div>
+      <div
+        class="flex justify-start items-center py-2  border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
+
+        <img class="h-5 px-5" src="https://flagcdn.com/w320/ke.png" alt="">
+        <p>Kiswahili</p>
+
+      </div>
+
+
+
+
+
+
+    </div>
+  </header>
+
+  <div class="w-full flex justify-between text-light-gray">
+    <div id="sidebar" class="h-screen  bg-light-dark"
+      :class="menuIsMinimised? 'w-[25%] sm:w-[8%]': 'w-[18%] hidden md:block'">
+      <div class="flex justify-between items-center p-4">
+        <img class="rounded-full h-10" src="/assets/images/avatar-1.jpg" alt="">
+        <div class="pr-8 hidden lg:block" :class="menuIsMinimised? 'hidden':'block'">
+          <h3 class="text-light-gray font-bold">Simon Angatia</h3>
+          <p class="text-sm">Lorem ipsum dolor.</p>
+        </div>
+      </div>
+      <h3 class="text-light-gray font-bold p-4">Main</h3>
+      <ul>
+        <li
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-home-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Home</a>
+        </li>
+        <li
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-grid-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Tables</a>
+        </li>
+        <li
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-bar-chart-box-line px-2  text-2xl"
+            :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Charts</a>
+        </li>
+        <li
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-clipboard-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Forms</a>
+        </li>
+
+
+      </ul>
+    </div>
+
+    <div id="main-content" class="h-full pb-40 bg-dark text-light-gray"
+      :class="menuIsMinimised ? 'w-[95%] ' : 'w-full md:w-[82%]' ">
+      <div class="w-full flex justify-start items-center px-10 bg-light-dark h-16 font-bold">
+        <h3>Dashboard</h3>
+      </div>
+      <div class="w-full mx-auto p-6">
+        <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="w-full flex flex-col bg-light-dark p-4">
+            <div class="flex justify-between items-center w-full">
+              <div class="flex flex-col items-center">
+                <i class="ri-user-line text-2xl"></i>
+                <h2 class="uppercase">New CLIENTS</h2>
+              </div>
+              <h2 class="font-bold text-purple text-2xl">27</h2>
+            </div>
+            <div class="w-full flex justify-start items-center py-2">
+              <div class="text-sm w-[50%] h-1 bg-purple"></div>
+              <div class="text-sm w-[50%] h-1 bg-light-gray"></div>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col bg-light-dark p-4">
+            <div class="flex justify-between items-center w-full">
+              <div class="flex flex-col items-center">
+                <i class="ri-newspaper-line text-2xl"></i>
+                <h2 class="uppercase">New Projects</h2>
+              </div>
+              <h2 class="font-bold text-purple text-2xl">375</h2>
+            </div>
+            <div class="w-full flex justify-start items-center py-2">
+              <div class="text-sm w-[30%] h-1 bg-dark-pink"></div>
+              <div class="text-sm w-[70%] h-1 bg-light-gray"></div>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col bg-light-dark p-4">
+            <div class="flex justify-between items-center w-full">
+              <div class="flex flex-col items-center">
+                <i class="ri-todo-line text-2xl"></i>
+                <h2 class="uppercase">New Invoices</h2>
+              </div>
+              <h2 class="font-bold text-purple text-2xl">140</h2>
+            </div>
+            <div class="w-full flex justify-start items-center py-2">
+              <div class="text-sm w-[70%] h-1 bg-pink-500"></div>
+              <div class="text-sm w-[30%] h-1 bg-light-gray"></div>
+            </div>
+          </div>
+
+          <div class="w-full flex flex-col bg-light-dark p-4">
+            <div class="flex justify-between items-center w-full">
+              <div class="flex flex-col items-center">
+                <i class="ri-artboard-line text-2xl"></i>
+                <h2 class="uppercase">All projects</h2>
+              </div>
+              <h2 class="font-bold text-purple text-2xl">45</h2>
+            </div>
+            <div class="w-full flex justify-start items-center py-2">
+              <div class="text-sm w-[40%] h-1 bg-purple"></div>
+              <div class="text-sm w-[60%] h-1 bg-light-gray"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="px-6">
+        <div class="w-full grid grid-cols-1  md:grid-cols-3 gap-6">
+          <div class="bg-light-dark h-80 md:col-span-1">
+            <div class="flex justify-center items-center h-full">
+              <h3 class="text-gray uppercase font-bold">Chart1</h3>
+            </div>
+          </div>
+          <div class="bg-light-dark h-80 md:col-span-2">
+            <div class="flex justify-center items-center h-full">
+              <h3 class="text-gray uppercase font-bold">Chart2</h3>
+            </div>
+          </div>
+          <div class="bg-dark h-80 md:col-span-2 mb-6 w-full grid grid-cols-1 gap-6 md:mb-0">
+
+            <div class="h-40 bg-light-dark flex justify-between items-center">
+              <div class="w-[50%] px-6  border-r-2 border-border-dark">
+                <div class="flex justify-between flex-col">
+                  <div class="flex justify-start items-center">
+                    <i class="ri-arrow-down-s-fill text-2xl text-red-500 pl-2 font-bold"></i>
+                    <h1 class="font-bold text-4xl  py-2">5.645</h1>
+                  </div>
+                  <h3 class="font-light px-8 uppercase">Standard Scans</h3>
+                  <div class="flex  px-8 w-[80%] justify-between items-center py-2">
+                    <p class="h-1 bg-pink-400 w-[50%]"></p>
+                    <p class="h-1 bg-gray w-[50%]"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-[50%] px-6">
+                <div class="flex justify-between flex-col">
+                  <div class="flex justify-start items-center">
+                    <i class="ri-arrow-up-s-fill text-2xl text-green-500 pl-2 font-bold"></i>
+                    <h1 class="font-bold text-4xl  py-2">5.645</h1>
+                  </div>
+                  <h3 class="font-light px-8 uppercase">Team Scans</h3>
+                  <div class="flex  px-8 w-[80%] justify-between items-center py-2">
+                    <p class="h-1 bg-red-400 w-[30%]"></p>
+                    <p class="h-1 bg-gray w-[70%]"></p>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="h-40 bg-light-dark flex justify-between items-center">
+              <div class="w-[50%] px-6  border-r-2 border-border-dark">
+                <div class="flex justify-between flex-col">
+
+                  <h1 class="font-bold text-4xl px-8  py-2">735</h1>
+
+                  <h3 class="font-light px-8 uppercase">Total requests</h3>
+                  <div class="flex  px-8 w-[80%] justify-between items-center py-2">
+                    <p class="h-1 bg-purple w-[50%]"></p>
+                    <p class="h-1 bg-gray w-[50%]"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="w-[50%] px-6 flex justify-around">
+                <div class="flex flex-col justify-between">
+                  <h1 class="font-bold text-2xl   py-2">735</h1>
+                  <h3 class="font-light uppercase">Threats</h3>
+                  <p class="h-[1px] bg-gray my-2 w-[50%]"></p>
+                  <h2 class="font-bold text-sm">+ 246</h2>
+                </div>
+                <div class="flex flex-col justify-between">
+                  <h1 class="font-bold text-2xl   py-2">735</h1>
+                  <h3 class="font-light uppercase">Neutral</h3>
+                  <p class="h-[1px] bg-gray my-2 w-[50%]"></p>
+                  <h2 class="font-bold text-sm">+ 246</h2>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+          <div class="bg-light-dark h-80 md:col-span-1">
+            <div class="flex justify-center items-center h-full">
+              <h3 class="text-gray uppercase font-bold">Chart3</h3>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
