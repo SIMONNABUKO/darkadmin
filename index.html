@@ -50,7 +50,7 @@
     </div>
 
     <div class="h-auto w-72 border border-border-dark absolute top-0 right-0 mt-24 mr-5 md:mr-60" x-show="showMessages"
-      x-transition  @click.away="showMessages = false">
+      x-transition @click.away="showMessages = false">
       <div
         class="flex justify-between items-center border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer">
         <img class="rounded-full h-14 w-14 mr-5" src="/assets/images/avatar-0.jpg" alt="">
@@ -98,7 +98,7 @@
     </div>
 
     <div class="h-auto w-72 border border-border-dark absolute top-0 right-0 mt-24  md:mr-48" x-show="showNotifications"
-      x-transition  @click.away="showNotifications = false">
+      x-transition @click.away="showNotifications = false">
       <div
         class="flex justify-between items-center flex-col border-t bg-light-dark border-border-dark p-2 hover:bg-dark hover:cursor-pointer hover:text-white">
 
@@ -170,26 +170,26 @@
   <div class="w-full flex justify-between text-light-gray">
     <div id="sidebar" class="h-screen  bg-light-dark"
       :class="menuIsMinimised? 'w-[25%] sm:w-[8%]': 'w-[18%] hidden md:block'">
-      <div class="flex justify-between items-center p-4">
+      <div class="flex justify-between items-center px-8 py-2">
         <img class="rounded-full h-10" src="/assets/images/avatar-1.jpg" alt="">
-        <div class="pr-8 hidden lg:block" :class="menuIsMinimised? 'hidden':'block'">
+        <div class="pr-8" :class="menuIsMinimised? 'hidden':'lg:block'">
           <h3 class="text-light-gray font-bold">Simon Angatia</h3>
           <p class="text-sm">Lorem ipsum dolor.</p>
         </div>
       </div>
-      <h3 class="text-light-gray font-bold p-4">Main</h3>
+      <h3 class="text-light-gray font-bold px-8 py-2">Main</h3>
       <ul>
         <li
           class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
           :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
           <i class="ri-home-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
-            :class="menuIsMinimised? 'px-2':'pl-8'">Home</a>
+            href="index.html" :class="menuIsMinimised? 'px-2':'pl-8'">Home</a>
         </li>
         <li
           class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
           :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
           <i class="ri-grid-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
-            :class="menuIsMinimised? 'px-2':'pl-8'">Tables</a>
+            href="tables.html" :class="menuIsMinimised? 'px-2':'pl-8'">Tables</a>
         </li>
 
         <li
@@ -199,35 +199,53 @@
             :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
             :class="menuIsMinimised? 'px-2':'pl-8'">Charts</a>
         </li>
-        
+
 
         <li
           class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
           :class="menuIsMinimised? 'flex-col justify-center':'justify-start'" @click="dropdownActive = !dropdownActive">
-          <i class="ri-clipboard-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
-            :class="menuIsMinimised? 'px-2':'pl-8'">Forms</a></i> <i class=" pl-6 text-2xl" :class="dropdownActive? 'ri-arrow-down-s-line':'ri-arrow-left-s-line'"></i>
+          <i class="ri-dropdown-list px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Dropdown</a></i> <i class=" pl-6 text-2xl hidden sm:block"
+            :class="dropdownActive? 'ri-arrow-down-s-line':'ri-arrow-left-s-line'"></i>
         </li>
-        <ul class="bg-dark h-auto border-r border-r-light-dark pb-1 min-h-40 flex justify-between items-center flex-col  w-full" x-show="dropdownActive" x-transition @click.away="dropdownActive = false" >
-          <li class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">Item 1</li>
-          <li class="h-16  border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">Item 2</li>
-          <li class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">Item 3</li>
-          <li class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">Item 4</li>
+        <ul
+          class="bg-dark h-auto border-r border-r-light-dark pb-1 min-h-40 flex justify-between items-center flex-col  w-full"
+          x-show="dropdownActive" x-transition @click.away="dropdownActive = false">
+          <li
+            class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">
+            Item 1</li>
+          <li
+            class="h-16  border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">
+            Item 2</li>
+          <li
+            class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">
+            Item 3</li>
+          <li
+            class="h-16 border-t border-t-dark px-2 w-full bg-dark text-light-gray hover:bg-light-dark hover:text-white hover:cursor-pointer flex justify-start items-center">
+            Item 4</li>
         </ul>
 
         <li
-        class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
-        :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
-        <i class="ri-login-circle-line px-2  text-2xl"
-          :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
-          :class="menuIsMinimised? 'px-2':'pl-8'">Login page</a>
-      </li>
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-clipboard-line px-2  text-2xl" :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            href="forms.html" :class="menuIsMinimised? 'px-2':'pl-8'">Forms</a>
+        </li>
+
+        <li
+          class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
+          :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
+          <i class="ri-login-circle-line px-2  text-2xl"
+            :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? 'px-2':'pl-8'">Login page</a>
+        </li>
 
 
       </ul>
 
     </div>
 
-    <div id="main-content" class="h-full pb-40 bg-dark text-light-gray"
+    <div id="main-content" class="h-full min-h-screen pb-40 bg-dark text-light-gray"
       :class="menuIsMinimised ? 'w-[95%] ' : 'w-full md:w-[82%]' ">
       <div class="w-full flex justify-start items-center px-10 bg-light-dark h-16 font-bold">
         <h3>Dashboard</h3>
