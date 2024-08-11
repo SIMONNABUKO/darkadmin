@@ -40,7 +40,7 @@
           <p class="pr-2 hidden sm:block">English</p>
           <i class="ri-arrow-down-s-line text-lg"></i>
         </div>
-        <div>
+        <div class="hover:cursor-pointer">
           <p class="text-center "><span class=" hidden sm:block">Logout </span><span class="px-3"><i
                 class="ri-logout-circle-r-line text-lg"></i></span></p>
         </div>
@@ -236,7 +236,7 @@
           class="py-5 border-l-2 border-l-light-dark hover:cursor-pointer text-gray hover:text-dark-pink hover:bg-border-dark hover:border-l-2 hover:border-l-dark-pink flex  items-center"
           :class="menuIsMinimised? 'flex-col justify-center':'justify-start'">
           <i class="ri-login-circle-line px-2  text-2xl"
-            :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a
+            :class="menuIsMinimised? '':'border-r border-r-gray pr-6'"></i><a href="login.html"
             :class="menuIsMinimised? 'px-2':'pl-8'">Login page</a>
         </li>
 

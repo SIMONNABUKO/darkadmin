@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body x-data="data" class="min-h-screen h-full flex justify-center items-center bg-[url('assets/images/bg.jpeg')] bg-cover bg-center">
+    <div class="w-3/4 flex justify-between items-center">
+        <div class="w-full h-[50vh] sm:h-[70vh]  flex justify-between items-center">
+            <div class="w-full h-full bg-dark-pink rounded-bl-lg rounded-tl-lg flex justify-center items-center">
+                <div class="text-white">
+                    <h1 class="font-bold text-2xl">Dashboard</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, tempora!</p>
+                </div>
+            </div>
+            <div class="w-full h-full bg-dark rounded-br-lg rounded-tr-lg ">
+                <div class="text-white p-5 mt-20 flex flex-col">
+                    <form action="#" class="flex justify-start flex-row sm:flex-col">
+                        <input type="text" placeholder="Username" class="p-4 m-1 bg-dark placeholder-border-dark border-b border-b-border-dark focus:outline-none focus:border-b-dark-pink">
+                        <input type="password" placeholder="Password" class="p-4 m-1 bg-dark placeholder-border-dark border-b border-b-border-dark focus:outline-none focus:border-b-dark-pink">
+                        <a href="#" class="p-2 mt-4 bg-dark-pink text-white hover:bg-red-500 rounded w-20">Login</a>
+                    </form>
+                    <a href="#" class="text-dark-pink py-3 text-sm">Forgot password?</a>
+                    <span class="text-sm">Don't have account?<a href="sign-up.html" class="text-dark-pink py-2">SignUp </a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+
+
+
+</html>
